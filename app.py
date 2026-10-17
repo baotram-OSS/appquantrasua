@@ -10,31 +10,34 @@ st.set_page_config(
     page_icon="🧋",
     layout="wide"
 )
+st.title("🧋 QUÁN TRÀ SỮA MÂY MÂY (CLOUDY TEA)")
+st.subheader("✨ Vị Ngon Tươi Mát - Trọn Vẹn Từng Phút Giây ✨")
 
 # Danh sách menu & giá (VND)
 MENU_TEA = {
-    "Trà Sữa Truyền Thống": 30000,
-    "Trà Sữa Trân Châu Đường Đen": 35000,
-    "Trà Sữa Thái Xanh": 32000,
-    "Trà Sữa Ô Long": 35000,
-    "Trà Sữa Matcha": 38000,
-    "Trà Sữa Dâu Tây": 35000,
-    "Trà Đào Cam Sả": 35000,
-    "Trà Dâu Tằm": 32000,
+    "Trà Sữa Mây Mây Bạc Hà": 38000,
+    "Trà Sữa Mơ Tươi Kem Cheese": 42000,
+    "Trà Trái Cây Nhiệt Đới Mới": 39000,
+    "Matcha Latte Đậu Đỏ Kem Béo": 45000,
+    "Lục Trà Lài Dâu Tây Tươi": 35000,
+    "Trà Xoài Macchiato": 40000,
+    "Trà Sữa Trân Châu Hoàng Gia": 42000,
+    "Trà Sữa Khúc Bạch Hạnh Nhân": 45000,
 }
 
 SIZE_OPTIONS = {
-    "S (Vừa)": 0,
-    "M (Lớn)": 5000,
-    "L (Đặc biệt)": 10000
+    "S (Nhỏ - Vừa đủ)": 0,
+    "M (Vừa - Đã miệng)": 6000,
+    "L (Lớn - Đã đời)": 12000
 }
 
 TOPPING_OPTIONS = {
-    "Trân châu đen": 5000,
-    "Trân châu trắng": 7000,
-    "Thạch trái cây": 5000,
-    "Pudding trứng": 8000,
-    "Kem Cheese": 10000
+    "Trân châu hoàng kim giòn dai": 6000,
+    "Thạch phô mai tươi béo ngậy": 8000,
+    "Pudding trứng béo mịn": 7000,
+    "Trân châu trắng sợi dẻo": 6000,
+    "Kem trứng dừa nướng thơm lừng": 10000,
+    "Sương sáo hạt é thanh mát": 5000
 }
 
 SUGAR_LEVELS = ["100% (Bình thường)", "70%", "50%", "30%", "0% (Không đường)"]
