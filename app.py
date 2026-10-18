@@ -115,7 +115,29 @@ with col_left:
         "Loại Topping (có thể chọn nhiều):",
         options=list(TOPPING_OPTIONS.keys())
     )
-
+    # --- TRỢ LÝ AI CHỌN MÓN ---
+        st.markdown("---")
+        st.subheader("🤖 Trợ Lý AI: Bói Trà Sữa Theo Tâm Trạng")
+        mood = st.selectbox(
+            "Hôm nay tâm trạng của bạn thế nào?", 
+            ["😊 Vui vẻ, yêu đời", "💻 Deadline ngập mặt, cần tỉnh ngủ", "🌧️ Buồn nhẹ, thèm đồ ngọt", "🔥 Căng thẳng, cần giải nhiệt"]
+        )
+    
+        if st.button("✨ AI Chọn Hộ Món Cho Tôi"):
+        if "Vui" in mood:
+            ai_pick = "Trà Sữa Mơ Tươi Kem Cheese"
+            comment = "Hợp với năng lượng rực rỡ của bạn hôm nay!"
+        elif "Deadline" in mood:
+            ai_pick = "Matcha Latte Đậu Đỏ Kem Béo"
+            comment = "Caffeine cực mạnh giúp bạn chiến đấu với deadline!"
+        elif "Buồn" in mood:
+            ai_pick = "Trà Sữa Khúc Bạch Hạnh Nhân"
+            comment = "Đồ ngọt sẽ xoa dịu tâm hồn bạn ngay lập tức."
+        else:
+            ai_pick = "Trà Sữa Mây Mây Bạc Hà"
+            comment = "Sảng khoái tức thì, thổi bay mọi stress!"
+        
+        st.success(f"🤖 AI gợi ý bạn nên thử: **{ai_pick}** - _{comment}_")
     # Tính giá tiền từng ly
     base_price = MENU_TEA[selected_tea]
     size_price = SIZE_OPTIONS[selected_size]
