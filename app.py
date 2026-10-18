@@ -115,15 +115,15 @@ with col_left:
         "Loại Topping (có thể chọn nhiều):",
         options=list(TOPPING_OPTIONS.keys())
     )
-    # --- TRỢ LÝ AI CHỌN MÓN ---
-        st.markdown("---")
-        st.subheader("🤖 Trợ Lý AI: Bói Trà Sữa Theo Tâm Trạng")
-        mood = st.selectbox(
-            "Hôm nay tâm trạng của bạn thế nào?", 
-            ["😊 Vui vẻ, yêu đời", "💻 Deadline ngập mặt, cần tỉnh ngủ", "🌧️ Buồn nhẹ, thèm đồ ngọt", "🔥 Căng thẳng, cần giải nhiệt"]
-        )
-    
-        if st.button("✨ AI Chọn Hộ Món Cho Tôi"):
+# --- TRỢ LÝ AI CHỌN MÓN ---
+    st.markdown("---")
+    st.subheader("🤖 Trợ Lý AI: Bói Trà Sữa Theo Tâm Trạng")
+    mood = st.selectbox(
+        "Hôm nay tâm trạng của bạn thế nào?", 
+        ["😊 Vui vẻ, yêu đời", "💻 Deadline ngập mặt, cần tỉnh ngủ", "🌧️ Buồn nhẹ, thèm đồ ngọt", "🔥 Căng thẳng, cần giải nhiệt"]
+    )
+
+    if st.button("✨ AI Chọn Hộ Món Cho Tôi"):
         if "Vui" in mood:
             ai_pick = "Trà Sữa Mơ Tươi Kem Cheese"
             comment = "Hợp với năng lượng rực rỡ của bạn hôm nay!"
