@@ -87,7 +87,7 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 st.image("HALO3.jpg", use_container_width=True)
-st.title("🎃 PUMPKIN SPICE CAFÉ")
+st.title("🎃 Spooky Brews Café")
 st.subheader("Are You Afraid of the Dark? ")
 
 # ---------------------------------------------------------
