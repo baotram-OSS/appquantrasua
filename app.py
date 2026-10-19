@@ -266,13 +266,18 @@ with col_left:
         st.toast(f"Đã nạp **{quantity}x {selected_tea}** vào vạc dầu!", icon="🕷️")
 
 with col_right:
-    st.subheader("🧺 Vạc Dầu Hiến Tế (Giỏ Hàng)")
+    st.subheader("🛒 Vạc Dầu Hiến Tế (Giỏ Hàng)")
+    
+    # Hiển thị ngày tháng
+    today_str = datetime.now().strftime("%d/%m/%Y")
+    st.markdown(f"<p style='color: #ffa64d; font-size: 0.9rem; margin-top: -10px; margin-bottom: 15px;'>📅 Ngày lập khế ước: {today_str}</p>", unsafe_allow_html=True)
 
+    # Thêm lại dòng 'if' này vào trước 'else'
     if not st.session_state.cart:
         st.warning("⚠️ Vạc dầu đang trống rỗng... Hãy dâng tế món uống bên trái.")
     else:
         df_cart = pd.DataFrame(st.session_state.cart)
-        
+
         st.dataframe(
             df_cart[["Tên món", "Size", "Topping", "Số lượng", "Đơn giá", "Thành tiền"]],
             use_container_width=True,
