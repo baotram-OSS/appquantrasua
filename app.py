@@ -11,7 +11,7 @@ st.set_page_config(
     layout="wide"
 )
 
-# Custom CSS chèn font chữ Halloween ma mị & hình nền nét đẹp
+# Custom CSS chèn font chữ Halloween ma mị & hình nền
 st.markdown("""
     <!-- Nhập các phông chữ từ Google Fonts API -->
     <link href="https://fonts.googleapis.com/css2?family=Sancreek&family=Press+Start+2P&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
@@ -28,7 +28,7 @@ st.markdown("""
         font-family: 'Montserrat', sans-serif;
     }
 
-    /* 2. Đổi phông chữ TÊN QUÁN (h1) thành font Sancreek */
+    /* 2. Đổi phông chữ TÊN QUÁN (h1) thành Sancreek */
     h1 {
         font-family: 'Sancreek', serif !important;
         color: #ff751a !important;
@@ -37,31 +37,40 @@ st.markdown("""
         text-shadow: 3px 3px 6px #000000, -2px -2px 4px #ff0000 !important;
     }
 
-    /* 3. Đổi phông chữ DÒNG PHỤ / SUBHEADER (h3) thành font Press Start 2P (Pixel) */
-    h2, h3 {
+    /* 3. Phông chữ riêng cho dòng 'Are You Afraid of the Dark?' (Press Start 2P) */
+    .pixel-subtitle {
         font-family: 'Press Start 2P', cursive !important;
         color: #ffa64d !important;
         font-size: 1.1rem !important;
         line-height: 1.6 !important;
         letter-spacing: 1px;
         text-shadow: 2px 2px 5px #000000 !important;
+        margin-bottom: 20px;
     }
 
-    /* 4. Phông chữ cho chữ hiển thị & nhãn chọn */
+    /* 4. Giữ phông Montserrat dễ đọc cho các tiêu đề mục khác (h2, h3) */
+    h2, h3 {
+        font-family: 'Montserrat', sans-serif !important;
+        font-weight: 700 !important;
+        color: #ff751a !important;
+        text-shadow: 2px 2px 4px #000000 !important;
+    }
+
+    /* 5. Phông chữ cho nhãn chọn & chữ hiển thị */
     label, p, span {
         font-family: 'Montserrat', sans-serif !important;
         font-weight: 600;
         text-shadow: 1px 1px 3px #000000;
     }
 
-    /* 5. Khung viền mờ giữ độ rõ nét */
+    /* 6. Khung viền mờ */
     div[data-testid="stVerticalBlock"] > div[style*="border"] {
         background-color: rgba(15, 15, 15, 0.65) !important;
         border: 1px solid #ff751a !important;
         border-radius: 10px;
     }
 
-    /* 6. Nút bấm ma quái */
+    /* 7. Nút bấm */
     .stButton>button {
         font-family: 'Montserrat', sans-serif !important;
         background-color: #660099 !important;
