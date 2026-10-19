@@ -77,7 +77,7 @@ st.markdown("""
 
 st.title("🎃 TIỆM TRÀ LỜI NGUYỀN (CURSED BUBBLE TEA)")
 st.subheader("👻 Vị Ngon Độc Huyết - Uống Là Mất Hồn 🩸")
-
+st.image("TRASUA.jpg", use_container_width=True)
 # ---------------------------------------------------------
 # 2. CƠ SỞ DỮ LIỆU MENUS & TÙY CHỌN HALLOWEEN
 # ---------------------------------------------------------
