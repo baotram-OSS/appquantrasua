@@ -93,6 +93,16 @@ st.subheader("Are You Afraid of the Dark? ")
 # ---------------------------------------------------------
 # 2. CƠ SỞ DỮ LIỆU MENUS & TÙY CHỌN HALLOWEEN
 # ---------------------------------------------------------
+MENU_TEA = {
+    "🩸 Máu Ma Cà Rồng (Trà Dâu Tằm Kem Béo Red Velvet)": 45000,
+    "🧪 Nước Cất Phù Thủy (Lục Trà Táo Xanh & Bạc Hà Mắt Quỷ)": 42000,
+    "🕷️ Độc Tố Nhện Đen (Trà Sữa Sô-cô-la Đen Than Hoạt Tính)": 48000,
+    "🧠 Não Người Chiên Xù (Matcha Latte Đậu Đỏ Dầm)": 46000,
+    "🎃 Linh Hồn Bí Ngô (Trà Sữa Bí Ngô Kem Cháy Spiced Pumpkin)": 49000,
+    "👁️ Lòng Con Ngươi (Trà Trái Cây Đột Biến Topping Thạch Mắt)": 44000,
+    "🦴 Súp Xương Tử Thần (Trà Oolong Sữa Than Tre & Khúc Bạch)": 47000,
+}
+
 TEA_IMAGES = {
     "🩸 Máu Ma Cà Rồng (Trà Dâu Tằm Kem Béo Red Velvet)": "https://images.unsplash.com/photo-1556679343-c7306c1976bc?q=80&w=600&auto=format&fit=crop",
     "🧪 Nước Cất Phù Thủy (Lục Trà Táo Xanh & Bạc Hà Mắt Quỷ)": "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?q=80&w=600&auto=format&fit=crop",
