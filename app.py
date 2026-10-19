@@ -3,13 +3,22 @@ import pandas as pd
 from datetime import datetime
 
 # ---------------------------------------------------------
-# 1. CẤU HÌNH TRANG & GIAO DIỆN NỀN HÌNH ẢNH HALLOWEEN
+# 1. CẤU HÌNH TRANG & GIAO DIỆN HÌNH ẢNH HALLOWEEN + NHẠC NỀN
 # ---------------------------------------------------------
 st.set_page_config(
     page_title="Tiệm Trà Lời Nguyền - Halloween Edition",
     page_icon="🎃",
     layout="wide"
 )
+
+# Chèn nhạc nền Halloween tự động phát ngầm (Autoplay & Loop)
+audio_html = """
+    <audio autoplay loop>
+        <source src="https://actions.google.com/sounds/v1/ambiences/haunted_house.ogg" type="audio/ogg">
+        Trình duyệt của bạn không hỗ trợ thẻ âm thanh.
+    </audio>
+"""
+st.markdown(audio_html, unsafe_allow_html=True)
 
 # Custom CSS chèn hình nền ma mị và làm nổi bật các khung nhập liệu
 st.markdown("""
@@ -27,7 +36,6 @@ st.markdown("""
         font-family: 'Courier New', Courier, monospace;
         text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
     }
-    /* Làm nền các khối container mờ ảo cho dễ đọc chữ */
     div[data-testid="stVerticalBlock"] > div[style*="border"] {
         background-color: rgba(20, 20, 20, 0.8) !important;
         border: 1px solid #ff751a !important;
@@ -48,7 +56,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 st.title("🎃 TIỆM TRÀ LỜI NGUYỀN (CURSED BUBBLE TEA)")
-st.subheader("👻 Vị Ngon Độc Huyết - Uống Là Mất Hồn 🩸")
+st.subheader("👻 Vị Ngon Độc Huyết - Uống Là Mất Hồn 🩸 *(Đang phát âm thanh nhà ma...)*")
 
 # ---------------------------------------------------------
 # 2. CƠ SỞ DỮ LIỆU MENUS & TÙY CHỌN HALLOWEEN
