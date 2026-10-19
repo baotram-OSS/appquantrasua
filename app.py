@@ -16,7 +16,7 @@ st.markdown("""
     <style>
     .stApp {
         background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.85)), 
-                          url("https://i.pinimg.com/1200x/83/0d/c2/830dc20e4dde5a010d747a8e351cb838.jpg");
+                          url("https://i.pinimg.com/originals/bb/b6/2f/bbb62f04e5cc65f8887bf426d87435ae.gif");
         background-size: cover;
         background-position: center;
         background-attachment: fixed;
