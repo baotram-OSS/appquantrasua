@@ -172,10 +172,10 @@ def create_txt_invoice(customer_name, cart, total_amount, discount, final_amount
 col_left, col_right = st.columns([1.1, 0.9])
 
 with col_left:
-    st.subheader("📜 Tờ Chế Bùa (Nhập Đơn Hàng)")
-    customer_name = st.text_input("💀 Tên linh hồn đặt nước:", placeholder="Nhập tên người chịu lời nguyền...")
+    st.subheader("Tạo Đơn Mới")
+    customer_name = st.text_input("Tên khách hàng:", placeholder="Nhập tên...")
     
-    st.markdown("#### 🧪 Chọn Thuốc Độc & Dị Vật")
+    st.markdown("#### Menu ")
     
     col_item, col_qty = st.columns([3, 1])
     with col_item:
