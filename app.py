@@ -75,8 +75,8 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-st.title("🎃 TIỆM TRÀ LỜI NGUYỀN (CURSED BUBBLE TEA)")
-st.subheader("👻 Vị Ngon Độc Huyết - Uống Là Mất Hồn 🩸")
+st.title("🎃 PUMPKIN SPICE CAFÉ")
+st.subheader("Are You Afraid of the Dark? ")
 
 # ---------------------------------------------------------
 # 2. CƠ SỞ DỮ LIỆU MENUS & TÙY CHỌN HALLOWEEN
