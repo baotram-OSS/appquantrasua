@@ -3,7 +3,7 @@ import pandas as pd
 from datetime import datetime
 
 # ---------------------------------------------------------
-# 1. CẤU HÌNH TRANG & GIAO DIỆN HALLOWEEN
+# 1. CẤU HÌNH TRANG & GIAO DIỆN NỀN HÌNH ẢNH HALLOWEEN
 # ---------------------------------------------------------
 st.set_page_config(
     page_title="Tiệm Trà Lời Nguyền - Halloween Edition",
@@ -11,39 +11,48 @@ st.set_page_config(
     layout="wide"
 )
 
-# Custom CSS giao diện u tối, ma mị
+# Custom CSS chèn hình nền ma mị và làm nổi bật các khung nhập liệu
 st.markdown("""
     <style>
     .stApp {
-        background-color: #0d0d0d;
+        background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.85)), 
+                          url("https://images.unsplash.com/photo-1508385082359-f38ae991e8f2?q=80&w=1920&auto=format&fit=crop");
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
         color: #e0e0e0;
     }
     h1, h2, h3 {
-        color: #ff6600 !important;
+        color: #ff751a !important;
         font-family: 'Courier New', Courier, monospace;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+    }
+    /* Làm nền các khối container mờ ảo cho dễ đọc chữ */
+    div[data-testid="stVerticalBlock"] > div[style*="border"] {
+        background-color: rgba(20, 20, 20, 0.8) !important;
+        border: 1px solid #ff751a !important;
     }
     .stButton>button {
         background-color: #660099 !important;
         color: white !important;
-        border: 1px solid #ff6600 !important;
+        border: 1px solid #ff751a !important;
         border-radius: 8px;
+        font-weight: bold;
     }
     .stButton>button:hover {
-        background-color: #ff6600 !important;
+        background-color: #ff751a !important;
         color: black !important;
         border: 1px solid #660099 !important;
     }
     </style>
 """, unsafe_allow_html=True)
 
-# Đổi ảnh banner hoặc hiển thị tiêu đề rùng rợn
 st.title("🎃 TIỆM TRÀ LỜI NGUYỀN (CURSED BUBBLE TEA)")
 st.subheader("👻 Vị Ngon Độc Huyết - Uống Là Mất Hồn 🩸")
 
 # ---------------------------------------------------------
 # 2. CƠ SỞ DỮ LIỆU MENUS & TÙY CHỌN HALLOWEEN
 # ---------------------------------------------------------
-# Menu nước uống kinh dị
 MENU_TEA = {
     "🩸 Máu Ma Cà Rồng (Trà Dâu Tằm Kem Béo Red Velvet)": 45000,
     "🧪 Nước Cất Phù Thủy (Lục Trà Táo Xanh & Bạc Hà Mắt Quỷ)": 42000,
@@ -85,7 +94,6 @@ ICE_LEVELS = [
     "0% Thiêu Đốt Giữa Hỏa Ngục (Không Đá)"
 ]
 
-# Khởi tạo Session State
 if "cart" not in st.session_state:
     st.session_state.cart = []
 if "invoice_paid" not in st.session_state:
@@ -95,7 +103,6 @@ if "invoice_paid" not in st.session_state:
 # 3. HÀM TẠO HÓA ĐƠN VĂN BẢN (TXT)
 # ---------------------------------------------------------
 def create_txt_invoice(customer_name, cart, total_amount, discount, final_amount):
-    """Tạo file hóa đơn dạng văn bản (TXT) đậm chất Halloween"""
     now = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
     content = f"{'='*45}\n"
     content += f"{'🎃 TIỆM TRÀ LỜI NGUYỀN - BILL BÁN HỒN 🎃':^45}\n"
@@ -108,7 +115,7 @@ def create_txt_invoice(customer_name, cart, total_amount, discount, final_amount
         content += f"{idx}. {item['Tên món']} [{item['Size']}]\n"
         content += f"   - Độc tố đường: {item['Đường']} | Băng giá: {item['Đá']}\n"
         if item['Topping'] != "Không":
-            content += f"   - Dị vật kềm theo: {item['Topping']}\n"
+            content += f"   - Dị vật kèm theo: {item['Topping']}\n"
         content += f"   SL: {item['Số lượng']} x {item['Đơn giá']:,} = {item['Thành tiền']:,} VNĐ\n"
         
     content += f"{'-'*45}\n"
@@ -124,23 +131,18 @@ def create_txt_invoice(customer_name, cart, total_amount, discount, final_amount
 # ---------------------------------------------------------
 col_left, col_right = st.columns([1.1, 0.9])
 
-# ==================== CỘT TRÁI: ĐẶT TRÀ & BÓI AI ====================
 with col_left:
     st.subheader("📜 Tờ Chế Bùa (Nhập Đơn Hàng)")
-    
-    # 1. Tên linh hồn
     customer_name = st.text_input("💀 Tên linh hồn đặt nước:", placeholder="Nhập tên người chịu lời nguyền...")
     
     st.markdown("#### 🧪 Chọn Thuốc Độc & Dị Vật")
     
-    # 2. Chọn món & số lượng
     col_item, col_qty = st.columns([3, 1])
     with col_item:
         selected_tea = st.selectbox("🔮 Độc chất chính:", list(MENU_TEA.keys()))
     with col_qty:
         quantity = st.number_input("Liều lượng:", min_value=1, value=1, step=1)
 
-    # 3. Size, Đường, Đá
     c_size, c_sugar, c_ice = st.columns(3)
     with c_size:
         selected_size = st.selectbox("⚰️ Loại Quan Tài (Size):", list(SIZE_OPTIONS.keys()))
@@ -149,13 +151,12 @@ with col_left:
     with c_ice:
         selected_ice = st.selectbox("❄️ Mức Đá Âm Phủ:", ICE_LEVELS)
 
-    # 4. Topping
     selected_toppings = st.multiselect(
         "🕷️ Dị vật đi kèm (Topping):",
         options=list(TOPPING_OPTIONS.keys())
     )
 
-    # --- TRỢ LÝ AI: BÓI TRÀ SỮA THEO TÂM TRẠNG MA QUỶ ---
+    # --- TRỢ LÝ AI ---
     st.markdown("---")
     st.subheader("🔮 Cầu Cơ AI: Bói Trà Lời Nguyền")
     mood = st.selectbox(
@@ -184,7 +185,6 @@ with col_left:
         
         st.error(f"🧙‍♀️ **Phù Thủy AI Truyền Rằng:** Bạn nên uống **{ai_pick}**\n\n_{comment}_")
 
-    # Tính giá tiền
     base_price = MENU_TEA[selected_tea]
     size_price = SIZE_OPTIONS[selected_size]
     topping_price = sum(TOPPING_OPTIONS[t] for t in selected_toppings)
@@ -193,7 +193,6 @@ with col_left:
 
     st.info(f"🪙 Phí tổn 1 ly độc tố: **{unit_price:,} VNĐ**")
 
-    # Thêm vào giỏ
     if st.button("➕ Dâng Lên Món Này", type="primary", use_container_width=True):
         topping_str = ", ".join(selected_toppings) if selected_toppings else "Không"
         item_data = {
@@ -210,7 +209,6 @@ with col_left:
         st.session_state.invoice_paid = False
         st.toast(f"Đã nạp **{quantity}x {selected_tea}** vào vạc dầu!", icon="🕷️")
 
-# ==================== CỘT PHẢI: VẠC DẦU (GIỎ HÀNG) ====================
 with col_right:
     st.subheader("🧺 Vạc Dầu Hiến Tế (Giỏ Hàng)")
 
@@ -219,14 +217,12 @@ with col_right:
     else:
         df_cart = pd.DataFrame(st.session_state.cart)
         
-        # Bảng hiển thị
         st.dataframe(
             df_cart[["Tên món", "Size", "Topping", "Số lượng", "Đơn giá", "Thành tiền"]],
             use_container_width=True,
             hide_index=True
         )
 
-        # Xóa giỏ hàng
         if st.button("🧹 Hủy Lời Nguyền (Xóa Hết)"):
             st.session_state.cart = []
             st.session_state.invoice_paid = False
@@ -244,15 +240,14 @@ with col_right:
 
         st.markdown(f"### Tổng linh hồn: **{total_price:,} VNĐ**")
         if discount > 0:
-            st.markdown(f"### Sau khi yểm bùa (-{discount}%): <span style='color:#ff0000'>{final_price:,} VNĐ</span>", unsafe_allow_html=True)
+            st.markdown(f"### Sau khi yểm bùa (-{discount}%): <span style='color:#ff4d4d'>{final_price:,} VNĐ</span>", unsafe_allow_html=True)
 
-        # Nút xác nhận thanh toán
         if st.button("🩸 KÝ HỢP ĐỒNG MÁU (THANH TOÁN)", type="primary", use_container_width=True):
             st.session_state.invoice_paid = True
-            st.snow() # Tạo hiệu ứng tuyết/sương lạnh
+            st.snow()
 
 # ---------------------------------------------------------
-# 5. XUẤT HÓA ĐƠN ÂM PHỦ KHI THANH TOÁN
+# 5. XUẤT HÓA ĐƠN KHI THANH TOÁN
 # ---------------------------------------------------------
 if st.session_state.get("invoice_paid") and st.session_state.cart:
     st.markdown("---")
@@ -260,7 +255,7 @@ if st.session_state.get("invoice_paid") and st.session_state.cart:
 
     invoice_box = st.container(border=True)
     with invoice_box:
-        st.markdown("<h2 style='text-align: center; color: #ff6600;'>🎃 HÓA ĐƠN BÁN HỒN - CURSED TEA 🎃</h2>", unsafe_allow_html=True)
+        st.markdown("<h2 style='text-align: center; color: #ff751a;'>🎃 HÓA ĐƠN BÁN HỒN - CURSED TEA 🎃</h2>", unsafe_allow_html=True)
         st.write(f"**Thời gian hiến tế:** {datetime.now().strftime('%d/%m/%Y %H:%M:%S')}")
         st.write(f"**Linh hồn sở hữu:** {customer_name if customer_name else 'Kẻ Vô Danh'}")
         
@@ -271,7 +266,7 @@ if st.session_state.get("invoice_paid") and st.session_state.cart:
             st.write(f"**Tổng tổn thất:** {total_price:,} VNĐ")
             st.write(f"**Chiết khấu yểm bùa:** {discount}%")
         with c2:
-            st.markdown(f"### TỔNG GIÁ TRỊ TẾ LỄ: <span style='color:#ff0000'>{final_price:,} VNĐ</span>", unsafe_allow_html=True)
+            st.markdown(f"### TỔNG GIÁ TRỊ TẾ LỄ: <span style='color:#ff4d4d'>{final_price:,} VNĐ</span>", unsafe_allow_html=True)
 
     txt_data = create_txt_invoice(customer_name, st.session_state.cart, total_price, discount, final_price)
     
