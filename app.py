@@ -15,34 +15,27 @@ st.set_page_config(
 st.markdown("""
     <style>
     .stApp {
-        background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.85)), 
-                          url("https://i.pinimg.com/originals/bb/b6/2f/bbb62f04e5cc65f8887bf426d87435ae.gif");
+        /* Đã giảm độ phủ tối xuống chỉ còn 25% - 40% để ảnh nền sáng rõ và nét */
+        background-image: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.4)), 
+                          url("https://images.unsplash.com/photo-1508385082359-f38ae991e8f2?q=80&w=1920&auto=format&fit=crop");
         background-size: cover;
         background-position: center;
         background-attachment: fixed;
-        color: #e0e0e0;
+        color: #ffffff;
     }
     h1, h2, h3 {
         color: #ff751a !important;
         font-family: 'Courier New', Courier, monospace;
-        text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+        /* Thêm bóng chữ đậm hơn để chữ không bị chìm trên nền sáng */
+        text-shadow: 3px 3px 6px #000000 !important;
     }
-    /* Làm nền các khối container mờ ảo cho dễ đọc chữ */
+    /* Thêm khung nền mờ cho chữ dễ đọc hơn nữa */
+    label, p, span {
+        text-shadow: 1px 1px 3px #000000;
+    }
     div[data-testid="stVerticalBlock"] > div[style*="border"] {
-        background-color: rgba(20, 20, 20, 0.8) !important;
+        background-color: rgba(0, 0, 0, 0.6) !important;
         border: 1px solid #ff751a !important;
-    }
-    .stButton>button {
-        background-color: #660099 !important;
-        color: white !important;
-        border: 1px solid #ff751a !important;
-        border-radius: 8px;
-        font-weight: bold;
-    }
-    .stButton>button:hover {
-        background-color: #ff751a !important;
-        color: black !important;
-        border: 1px solid #660099 !important;
     }
     </style>
 """, unsafe_allow_html=True)
