@@ -94,13 +94,13 @@ st.subheader("Are You Afraid of the Dark? ")
 # 2. CƠ SỞ DỮ LIỆU MENUS & TÙY CHỌN HALLOWEEN
 # ---------------------------------------------------------
 TEA_IMAGES = {
-    "Trà Dâu Tằm Kem Béo Red Velvet": "https://images.unsplash.com/photo-1556679343-c7306c1976bc?q=80&w=600&auto=format&fit=crop",
-    "Lục Trà Táo Xanh & Bạc Hà Mắt Quỷ": "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?q=80&w=600&auto=format&fit=crop",
-    "Trà Sữa Sô-cô-la Đen Than Hoạt Tính": "https://images.unsplash.com/photo-1541658016709-82535e94bc69?q=80&w=600&auto=format&fit=crop",
-    "Matcha Latte Đậu Đỏ Dầm": "https://images.unsplash.com/photo-1536256263959-770b48d82b0a?q=80&w=600&auto=format&fit=crop",
-    "Trà Sữa Bí Ngô Kem Cháy Spiced Pumpkin": "https://images.unsplash.com/photo-1572490122747-3968b75cc699?q=80&w=600&auto=format&fit=crop",
-    "Trà Trái Cây Đột Biến Topping Thạch Mắt": "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?q=80&w=600&auto=format&fit=crop",
-    "Trà Oolong Sữa Than Tre & Khúc Bạch": "https://images.unsplash.com/photo-1558857563-b371382c2a8b?q=80&w=600&auto=format&fit=crop",
+    "🩸 Máu Ma Cà Rồng (Trà Dâu Tằm Kem Béo Red Velvet)": "https://images.unsplash.com/photo-1556679343-c7306c1976bc?q=80&w=600&auto=format&fit=crop",
+    "🧪 Nước Cất Phù Thủy (Lục Trà Táo Xanh & Bạc Hà Mắt Quỷ)": "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?q=80&w=600&auto=format&fit=crop",
+    "🕷️ Độc Tố Nhện Đen (Trà Sữa Sô-cô-la Đen Than Hoạt Tính)": "https://images.unsplash.com/photo-1541658016709-82535e94bc69?q=80&w=600&auto=format&fit=crop",
+    "🧠 Não Người Chiên Xù (Matcha Latte Đậu Đỏ Dầm)": "https://images.unsplash.com/photo-1536256263959-770b48d82b0a?q=80&w=600&auto=format&fit=crop",
+    "🎃 Linh Hồn Bí Ngô (Trà Sữa Bí Ngô Kem Cháy Spiced Pumpkin)": "https://images.unsplash.com/photo-1572490122747-3968b75cc699?q=80&w=600&auto=format&fit=crop",
+    "👁️ Lòng Con Ngươi (Trà Trái Cây Đột Biến Topping Thạch Mắt)": "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?q=80&w=600&auto=format&fit=crop",
+    "🦴 Súp Xương Tử Thần (Trà Oolong Sữa Than Tre & Khúc Bạch)": "https://images.unsplash.com/photo-1558857563-b371382c2a8b?q=80&w=600&auto=format&fit=crop",
 }
 
 SIZE_OPTIONS = {
