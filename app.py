@@ -17,7 +17,7 @@ st.markdown("""
     .stApp {
         /* Đã giảm độ phủ tối xuống chỉ còn 25% - 40% để ảnh nền sáng rõ và nét */
         background-image: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.4)), 
-                          url("https://images.unsplash.com/photo-1508385082359-f38ae991e8f2?q=80&w=1920&auto=format&fit=crop");
+                          url("https://i.pinimg.com/originals/bb/b6/2f/bbb62f04e5cc65f8887bf426d87435ae.gif");
         background-size: cover;
         background-position: center;
         background-attachment: fixed;
