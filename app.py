@@ -369,8 +369,8 @@ if st.session_state.get("invoice_paid") and st.session_state.cart:
 
         # Cấu hình thông tin ngân hàng của bạn:
         BANK_ID = "MB"            # Mã ngân hàng (VD: MB, VCB, TCB, ACB, VPB, ICB, ...)
-        ACCOUNT_NO = "STK_CUA_BAN"    # Thay bằng Số tài khoản của bạn
-        ACCOUNT_NAME = "TEN TAI KHOAN" # Thay bằng Tên chủ tài khoản (không dấu)
+        ACCOUNT_NO = "06985544551544"    # Thay bằng Số tài khoản của bạn
+        ACCOUNT_NAME = "LE NGOC BAO TRAM" # Thay bằng Tên chủ tài khoản (không dấu)
 
         # Tạo link QR động tự động điền đúng số tiền final_price
         qr_url = f"https://img.vietqr.io/image/{BANK_ID}-{ACCOUNT_NO}-compact2.png?amount={final_price}&addInfo=Thanh%20toan%20Spooky%20Brews&accountName={ACCOUNT_NAME}"
