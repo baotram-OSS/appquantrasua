@@ -363,7 +363,27 @@ if st.session_state.get("invoice_paid") and st.session_state.cart:
             st.write(f"**Chiết khấu yểm bùa:** {discount}%")
         with c2:
             st.markdown(f"### TỔNG GIÁ TRỊ TẾ LỄ: <span style='color:#ff4d4d'>{final_price:,} VNĐ</span>", unsafe_allow_html=True)
+# === CHÈN MÃ QR VÀO NGAY DƯỚI TỔNG GIÁ TRỊ TẾ LỄ ===
+        st.markdown("---")
+        st.subheader("📲 Quét Mã Hiến Tế (Thanh Toán QR)")
 
+        # Cấu hình thông tin ngân hàng của bạn:
+        BANK_ID = "MB"            # Mã ngân hàng (VD: MB, VCB, TCB, ACB, VPB, ICB, ...)
+        ACCOUNT_NO = "STK_CUA_BAN"    # Thay bằng Số tài khoản của bạn
+        ACCOUNT_NAME = "TEN TAI KHOAN" # Thay bằng Tên chủ tài khoản (không dấu)
+
+        # Tạo link QR động tự động điền đúng số tiền final_price
+        qr_url = f"https://img.vietqr.io/image/{BANK_ID}-{ACCOUNT_NO}-compact2.png?amount={final_price}&addInfo=Thanh%20toan%20Spooky%20Brews&accountName={ACCOUNT_NAME}"
+
+        c_qr, c_qr_info = st.columns([1, 1])
+        with c_qr:
+            st.image(qr_url, caption="Mã QR chuyển khoản âm phủ", use_container_width=True)
+        with c_qr_info:
+            st.info("📌 **Hướng dẫn cúng tế:**")
+            st.write(f"- **Ngân hàng:** {BANK_ID}")
+            st.write(f"- **Số tài khoản:** `{ACCOUNT_NO}`")
+            st.write(f"- **Chủ tài khoản:** {ACCOUNT_NAME}")
+            st.write(f"- **Số tiền:** `{final_price:,} VNĐ`")
     txt_data = create_txt_invoice(customer_name, st.session_state.cart, total_price, discount, final_price)
     
     col_dl1, col_dl2 = st.columns(2)
