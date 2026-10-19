@@ -306,7 +306,42 @@ with col_right:
         if st.button("🩸 KÝ HỢP ĐỒNG MÁU (THANH TOÁN)", type="primary", use_container_width=True):
             st.session_state.invoice_paid = True
             st.snow()
+# ==========================================
+    # MINIGAME: TUNG XÚC SẮC NHẬN QUÀ LỜI NGUYỀN
+    # ==========================================
+    st.markdown("---")
+    st.subheader("🎲 Vòng Quay / Tung Xúc Sắc Định Mệnh")
+    st.markdown("Tung 2 viên xúc sắc âm phủ! Nếu ra **2 mặt giống nhau (Double)**, bạn sẽ nhận được phần quà đặc biệt!")
 
+    if "dice_result" not in st.session_state:
+        st.session_state.dice_result = None
+        st.session_state.lucky_gift = None
+
+    if st.button("🎲 Tung Xúc Sắc Ngay!"):
+        import random
+        dice1 = random.randint(1, 6)
+        dice2 = random.randint(1, 6)
+        st.session_state.dice_result = (dice1, dice2)
+        
+        if dice1 == dice2:
+            gifts = [
+                "🎁 Nhận ngay 1 Topping Thạch Mắt Quỷ miễn phí!",
+                "🦇 Giảm ngay 10% tổng hóa đơn bùa chú!",
+                "🩸 Tặng kèm 1 ly Máu Ma Cà Rồng size mini!",
+                "🔮 Nhận được bùa hộ mệnh: Miễn phí ship âm phủ!"
+            ]
+            st.session_state.lucky_gift = random.choice(gifts)
+        else:
+            st.session_state.lucky_gift = None
+
+    if st.session_state.dice_result:
+        d1, d2 = st.session_state.dice_result
+        st.info(f"Kết quả: 🎲 **[ {d1} ]** và 🎲 **[ {d2} ]**")
+        
+        if d1 == d2:
+            st.success(f"🎉 TRÚNG ĐÔI {d1}-{d1}! Quà của bạn: **{st.session_state.lucky_gift}**")
+        else:
+            st.warning("👻 Chưa trúng đôi rồi, thử lại vận may nhé!")
 # ---------------------------------------------------------
 # 5. XUẤT HÓA ĐƠN KHI THANH TOÁN
 # ---------------------------------------------------------
