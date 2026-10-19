@@ -11,31 +11,66 @@ st.set_page_config(
     layout="wide"
 )
 
-# Custom CSS chèn hình nền ma mị và làm nổi bật các khung nhập liệu
+# Custom CSS chèn font chữ Halloween ma mị & hình nền nét đẹp
 st.markdown("""
+    <!-- Nhập phông Creepster (cho tiêu đề) và phông Montserrat (cho nội dung) -->
+    <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+
     <style>
+    /* 1. Nền toàn trang & Phông chữ nội dung */
     .stApp {
-        /* Đã giảm độ phủ tối xuống chỉ còn 25% - 40% để ảnh nền sáng rõ và nét */
         background-image: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.4)), 
                           url("https://i.pinimg.com/originals/bb/b6/2f/bbb62f04e5cc65f8887bf426d87435ae.gif");
         background-size: cover;
         background-position: center;
         background-attachment: fixed;
         color: #ffffff;
+        font-family: 'Montserrat', sans-serif;
     }
-    h1, h2, h3 {
+
+    /* 2. Đổi phông chữ Kinh Dị cho Tiêu Đề (H1, H2, H3) */
+    h1 {
+        font-family: 'Creepster', cursive !important;
         color: #ff751a !important;
-        font-family: 'Courier New', Courier, monospace;
-        /* Thêm bóng chữ đậm hơn để chữ không bị chìm trên nền sáng */
-        text-shadow: 3px 3px 6px #000000 !important;
+        font-size: 3rem !important;
+        letter-spacing: 2px;
+        text-shadow: 3px 3px 6px #000000, -2px -2px 4px #ff0000 !important;
     }
-    /* Thêm khung nền mờ cho chữ dễ đọc hơn nữa */
+
+    h2, h3 {
+        font-family: 'Creepster', cursive !important;
+        color: #ffa64d !important;
+        letter-spacing: 1px;
+        text-shadow: 2px 2px 5px #000000 !important;
+    }
+
+    /* 3. Phông chữ cho chữ hiển thị & nhãn chọn */
     label, p, span {
+        font-family: 'Montserrat', sans-serif !important;
+        font-weight: 600;
         text-shadow: 1px 1px 3px #000000;
     }
+
+    /* 4. Khung viền mờ giữ độ rõ nét */
     div[data-testid="stVerticalBlock"] > div[style*="border"] {
-        background-color: rgba(0, 0, 0, 0.6) !important;
+        background-color: rgba(15, 15, 15, 0.65) !important;
         border: 1px solid #ff751a !important;
+        border-radius: 10px;
+    }
+
+    /* 5. Nút bấm ma quái */
+    .stButton>button {
+        font-family: 'Montserrat', sans-serif !important;
+        background-color: #660099 !important;
+        color: white !important;
+        border: 1px solid #ff751a !important;
+        border-radius: 8px;
+        font-weight: bold;
+    }
+    .stButton>button:hover {
+        background-color: #ff751a !important;
+        color: black !important;
+        border: 1px solid #660099 !important;
     }
     </style>
 """, unsafe_allow_html=True)
