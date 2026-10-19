@@ -20,7 +20,7 @@ st.markdown("""
     /* 1. Nền toàn trang & Phông chữ nội dung */
     .stApp {
         background-image: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.4)), 
-                          url("https://i.pinimg.com/originals/bb/b6/2f/bbb62f04e5cc65f8887bf426d87435ae.gif");
+                          url("https://i.pinimg.com/originals/3a/75/68/3a75686ba7628bcb8c17157ff210f157.gif");
         background-size: cover;
         background-position: center;
         background-attachment: fixed;
