@@ -187,11 +187,17 @@ with col_left:
     
     st.markdown("#### Menu ")
     
-    col_item, col_qty = st.columns([3, 1])
-    with col_item:
+   # Chia làm 2 cột: Cột trái (rộng hơn) chứa selectbox chọn món và số lượng, Cột phải chứa hình ảnh
+    c_choose, c_pic = st.columns([1.3, 0.7])
+    
+    with c_choose:
         selected_tea = st.selectbox("🔮 Độc chất chính:", list(MENU_TEA.keys()))
-    with col_qty:
         quantity = st.number_input("Liều lượng:", min_value=1, value=1, step=1)
+        
+    with c_pic:
+        # Tự động lấy ảnh từ từ điển TEA_IMAGES dựa theo món đang chọn
+        current_img = TEA_IMAGES.get(selected_tea, "https://images.unsplash.com/photo-1508385082359-f38ae991e8f2?q=80&w=600&auto=format&fit=crop")
+        st.image(current_img, caption="Minh họa", width=150)
 
     c_size, c_sugar, c_ice = st.columns(3)
     with c_size:
