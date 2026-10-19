@@ -14,7 +14,7 @@ st.set_page_config(
 # Custom CSS chèn font chữ Halloween ma mị & hình nền nét đẹp
 st.markdown("""
     <!-- Nhập phông Creepster (cho tiêu đề) và phông Montserrat (cho nội dung) -->
-    <link href="https://fonts.google.com/specimen/Isometra"stylesheet">
+    <link href="https://fonts.google.com/specimen/Dancing+Script"stylesheet">
 
     <style>
     /* 1. Nền toàn trang & Phông chữ nội dung */
